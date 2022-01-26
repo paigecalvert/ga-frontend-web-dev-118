@@ -125,3 +125,34 @@ a {
 }
 
 
+.contentImage {
+  border: 3px solid #131e27;
+  max-width: 474px;
+}
+
+.featureBox {
+  max-width: 440px;
+  padding: 20px;
+  background-color: papayawhip;
+}
+
+.featureBox h1 {
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.featureBox ul, 
+.featureBox ol {
+  margin-left: 30px;
+}
+
+.featureBox strong {
+  background-color: #eaeaea;
+  border: thin solid rgb(170,170,170);
+  padding: 4px;
+  color: black;
+}
+
+.featureBox > *:first-child {
+  
+}
