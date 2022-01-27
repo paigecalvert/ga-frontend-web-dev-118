@@ -1,0 +1,33 @@
+body {
+    padding: 50px 100px 50px 100px;
+    background-color: #F6F6F6;
+    border-bottom: 5px solid #222222;
+    font-family: Georgia, Times, "Times New Roman", serif;
+    color: #05080C;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+header {
+    border-top: 5px solid #222222;
+}
+
+p {
+    font-family: Georgia, Times, "Times New Roman", serif;
+}
+
+#map {
+    float: right;
+    margin-left: 20px;
+}
+
+th {
+    background-color: #222222;
+    color: papayawhip;
+    padding: 10px 20px 10px 20px;
+}
+
+td {
+    background-color: #eeeeee;
+    padding: 10px 20px 10px 20px;
+}
