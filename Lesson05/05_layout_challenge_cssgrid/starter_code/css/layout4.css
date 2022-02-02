@@ -11,46 +11,53 @@ Use Flex-wrap, flex-direction, and flex to control how the header spaces and siz
 
 
 
-.exerciseFooter, .exerciseMain {
-    margin: 0px 10px 10px 10px;
+.exerciseFooter, .exerciseMain, .exerciseHeader {
+    margin: 10px 10px 10px 10px;
 }
 
 .exerciseHeader {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+
 }
 
 .exerciseHeaderLogo {
     width: 200px;
+    height: 80px;
 }
 
+
 .exerciseHeaderNav {
-    width: 50%;
+
 }
 
 .exerciseHeaderNav ul {
-    display: flex;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: 10px;
-    list-style: none; 
-    width: 100%;
 }
 
 .exerciseHeaderNav ul li {
-    min-width: 20%;
+
+
 }
 
 
 .exerciseMainContent {
-
+    
 }
 
 
 .exerciseAdditionalFeatures {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
 }
 
 .exerciseAdditionalFeatures .exerciseMarketingFeature {
-    width: 33%;
+
+
 }
 
 .exerciseAdditionalFeatures .exerciseMarketingFeature:first-child {

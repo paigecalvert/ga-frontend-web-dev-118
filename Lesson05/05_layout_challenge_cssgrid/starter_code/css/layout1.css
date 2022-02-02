@@ -4,15 +4,13 @@
 }
 
 .exerciseMain {
-    display: flex;
-    gap: 10px;
+
 }
 
 .exerciseMainContent {
-    width: 50%;
 
 }
 
 .exerciseMainAside {
-    width: 25%;
+
 }

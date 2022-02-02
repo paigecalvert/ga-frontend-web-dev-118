@@ -4,28 +4,30 @@
 }
 
 .exerciseMainFeatures {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
+    margin-bottom: 10px;
 }
 
 .exerciseMainFeatures .exerciseMarketingFeature {
-    width: 50%;
+
 
 }
 
 .exerciseMainFeatures .exerciseMarketingFeature:first-child {
-    width: 50%;
+
 }
 
 .exerciseAdditionalFeatures {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
-    margin-top: 10px;
 }
 
 .exerciseAdditionalFeatures .exerciseMarketingFeature {
-    width: 33.33%;
-    
+
+
 }
 
 .exerciseAdditionalFeatures .exerciseMarketingFeature:first-child {

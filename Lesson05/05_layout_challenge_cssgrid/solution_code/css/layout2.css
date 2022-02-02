@@ -4,15 +4,15 @@
 }
 
 .exerciseMain {
-    display: flex;
-    gap: 10px;
+    display:grid;
+    gap:10px;
+    grid-template-columns: 25% 50% 30%;
 }
 
 .exerciseMainContent {
-    width: 50%;
 
 }
 
 .exerciseMainAside {
-    width: 25%;
+
 }
