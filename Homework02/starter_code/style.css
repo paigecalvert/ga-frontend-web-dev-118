@@ -28,6 +28,12 @@ p {
 body {
   font-family: 'Lato', sans-serif;
   font-size: 18px;
+  margin: 0;
+}
+
+a,
+a:visited {
+  text-decoration:none;
 }
 
 /* Header */
@@ -44,7 +50,9 @@ body {
   
 }
 
-.companyLogo p {
+.companyLogo p,
+.companyLogo p a, 
+.companyLogo p a:visited {
   color: #f2ff00;
   font-family: 'Merriweather', serif;
   font-size: 24px;
@@ -53,7 +61,7 @@ body {
 /* main nav */
 
 .navigation {
-  color: white;
+  
 }
 
 .navigation ul {
@@ -62,9 +70,13 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
-.navigation ul li {
+.navigation ul li,
+.navigation ul li a,
+.navigation ul li a:visited {
+  color: white;
   font-size: 16px;
   padding: 0 10px 0 10px;
+  margin: 0;
   text-align: center;
 }
 
@@ -91,14 +103,22 @@ body {
 
 /* main image and pop up */
 
-.background img {
-  max-width: 100%;
+.background div.backgroundImage {
+  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/2522641/coworking.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  min-height: 70%;
 }
 
 .background div.floatingWindow {
-  width: 500px;
-  border: 1px solid #878787;
-  background-color: #adadad;
+  width: 400px;
+  border: 1px solid #adadad;
+  background: rgba(235, 235, 235, 0.75);
+  position: absolute;
+  top: 30%;
+  right: 3%;
 }
 
 .background p {
@@ -106,17 +126,32 @@ body {
 }
 
 .background p.floatingWindowHeader {
-
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .background p.floatingWindowContent {
-
+  font-size: 16px;
+  padding-top: 0;
 }
 
 
 .background p.button.light {
   background-color:#f2ff00;
   border-bottom: 2px solid #ffd900;
+  color:black;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.background p.button.light a,
+.background p.button.light a:visited {
+  background-color:#f2ff00;
   color:black;
   text-align: center;
   margin-bottom: 20px;
@@ -135,15 +170,15 @@ body {
 }
 
 .threeBlocks div {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .threeBlocks div.firstBlock,
 .threeBlocks div.secondBlock,
 .threeBlocks div.thirdBlock {
   display: grid;
-  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-rows: 50px 100px 80px;
 }
 
 .threeBlocks div.firstBlock,
@@ -155,16 +190,30 @@ body {
   text-align: left;
   font-family: 'Merriweather', serif;
   font-weight: bold;
+  padding-top: 20px;
 }
 
 .threeBlocks p.blockContent {
   font-family: 'Merriweather', serif;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .threeBlocks p.button.dark {
   background-color:#adadad;
   border-bottom: 2px solid #878787;
+  color:black;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.threeBlocks p.button.dark a,
+.threeBlocks p.button.dark a:visited {
+  background-color:#adadad;
   color:black;
   text-align: center;
   margin-bottom: 20px;
