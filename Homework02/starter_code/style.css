@@ -1,0 +1,189 @@
+/* ################################################## */
+/* ########### Global classes / overrides ########### */
+/* ################################################## */
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.5;
+  padding: 15px 0;
+}
+
+/* Fonts, classes are so I can reuse the styles on a variety of elements */
+.merriweather { font-family: 'Merriweather', serif; }
+      .oswald { font-family: 'Oswald', sans-serif; }
+        .lato { font-family: 'Lato', sans-serif; }
+
+/* Colors */
+/* Dark yellow: #f2ff00 */
+/* Lighter yellow: #ffd900 */
+/* Light gray: #adadad */
+/* Medium gray: #878787 */
+
+/* Background Image */
+/* https://s3-us-west-2.amazonaws.com/s.cdpn.io/2522641/coworking.jpg */
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+}
+
+/* Header */
+
+.siteHeader {
+  background-color: #000;
+  border-bottom: 5px solid #f2ff00;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.siteHeader div.companyLogo {
+  padding-left: 20px;
+  
+}
+
+.companyLogo p {
+  color: #f2ff00;
+  font-family: 'Merriweather', serif;
+  font-size: 24px;
+}
+
+/* main nav */
+
+.navigation {
+  color: white;
+}
+
+.navigation ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.navigation ul li {
+  font-size: 16px;
+  padding: 0 10px 0 10px;
+  text-align: center;
+}
+
+.navigation ul li.find {
+  font-weight: bold; 
+  font-family: 'Oswald', sans-serif;
+}
+
+/* top banner */
+
+.banner {
+  background-color: #adadad;
+  text-align: center;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+.emphasis {
+  border-bottom: 3px solid #f2ff00;
+  font-style: italic;
+}
+
+/* main image and pop up */
+
+.background img {
+  max-width: 100%;
+}
+
+.background div.floatingWindow {
+  width: 500px;
+  border: 1px solid #878787;
+  background-color: #adadad;
+}
+
+.background p {
+  margin: 0 20px 0 20px;
+}
+
+.background p.floatingWindowHeader {
+
+}
+
+.background p.floatingWindowContent {
+
+}
+
+
+.background p.button.light {
+  background-color:#f2ff00;
+  border-bottom: 2px solid #ffd900;
+  color:black;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+/* three blocks */
+
+.threeBlocks {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.threeBlocks div {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.threeBlocks div.firstBlock,
+.threeBlocks div.secondBlock,
+.threeBlocks div.thirdBlock {
+  display: grid;
+  grid-template-rows: 1fr 2fr 1fr;
+}
+
+.threeBlocks div.firstBlock,
+.threeBlocks div.secondBlock {
+  border-right: 1px solid #adadad;
+}
+
+.threeBlocks p.blockHeading {
+  text-align: left;
+  font-family: 'Merriweather', serif;
+  font-weight: bold;
+}
+
+.threeBlocks p.blockContent {
+  font-family: 'Merriweather', serif;
+  font-size: 16px;
+}
+
+.threeBlocks p.button.dark {
+  background-color:#adadad;
+  border-bottom: 2px solid #878787;
+  color:black;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+
+/* Footer */
+
+.siteFooter {
+  background-color: black;
+}
+
+.siteFooter p {
+  color: white;
+  font-size: 12px;
+  padding-left: 20px;
+}
