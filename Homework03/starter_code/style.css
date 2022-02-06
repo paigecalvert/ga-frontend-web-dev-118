@@ -1,0 +1,178 @@
+/** Colors **/
+/**
+Green: #20c063 / RGBA(32,192,99,1)
+Gray: #e8e9ea  / RGBA (232,233,234,1)
+Dark Text: #3b4144 / RGBA (59,65,68,1)
+Dark grey: #474E52
+**/
+
+/** ################# **/
+/** MAIN CSS **/
+/** ################# **/
+
+html, body, footer, header {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  margin:0;
+}
+
+/** ################# **/
+/** SITE HEADER **/
+/** ################# **/
+
+.truliaHeader {
+    background: #20c063;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 30px 0px 30px;
+    font-size: 14px;
+}
+
+.truliaHeader a,
+.truliaHeader a:visited {
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+.truliaHeader ul,
+.truliaHeader ul a,
+.truliaHeader ul a:visited {
+  list-style: none;
+}
+
+/** Trulia Logo and Left Nav **/
+
+.logoAndMainNav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.truliaHeader .mainNav {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+/** Right Nav **/
+
+.truliaHeader .accountNav {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.truliaHeader .accountNav-1 {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.truliaHeader .accountNav-2 {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+/** ################# **/
+/** PAGE HEADER **/
+/** ################# **/
+
+.pageHeader {
+  background: white;
+  display: flex;
+  font-size: 14px;
+  gap: 10px;
+  padding: 20px 0px 0px 20px;
+}
+
+.pageHeader p.pageTitle {
+   font-weight: bold;
+}
+
+/** ################# **/
+/** MAIN GRID **/
+/** ################# **/
+
+.truliaGrid {
+
+}
+
+.truliaGrid img {
+  max-width: 100%;
+}
+
+.truliaGrid .gridItem h1 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.truliaGrid ul {
+    list-style: none;
+}
+
+
+/** ################# **/
+/** PAGE NAV **/
+/** ################# **/
+
+
+
+
+/** ################# **/
+/** INSIGHTS **/
+/** ################# **/
+
+.realEstateInsights {
+    background: white;
+    padding: 30px;
+}
+
+.realEstateInsights h1 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.realEstateInsights p {
+    font-size: 14px;
+    padding: 0px 15px 15px 0px;
+}
+
+.realEstateInsights p a,
+.realEstateInsights p a:visited {
+    color: #3a8e52;
+    text-decoration: none;
+}
+
+.realEstateInsights {
+
+}
+
+/** ################# **/
+/** SITE FOOTER **/
+/** ################# **/
+
+.truliaFooter {
+  background: #474E52;
+  padding: 20px 0px 20px 0px;
+}
+
+.truliaFooter ul,
+.truliaFooter ul a,
+.truliaFooter ul a:visited {
+  color: white;
+  list-style: none;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.truliaFooter ul {
+    display: flex;
+}
+
+.truliaFooter .footerCopyright {
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 30px;
+}
