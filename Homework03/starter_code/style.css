@@ -93,31 +93,77 @@ html, body, footer, header {
 /** MAIN GRID **/
 /** ################# **/
 
-.truliaGrid .new-box {
-    background: papayawhip;
-    display: block;
-}
-
-.truliaGrid img {
-  max-width: 100%;
-}
-
-.truliaGrid .gridItem h1 {
-    font-size: 16px;
-    font-weight: bold;
-}
-
 .truliaGrid ul {
     list-style: none;
+    padding:0;
 }
 
-.truliaGrid .gridItem {
-    display: flex;
+.gridItem {
+    min-width: 160px;
+    max-width: 400px;
 }
 
-.truliaGrid .gridItem .houseFacts {
+.gridItem h1 {
+    font-size: 16px;
+    font-weight: bold;
+    margin:0;
+}
+
+.houseFacts {
     display: flex;
     flex-direction: column;
+    margin-left: 20px;
+}
+
+.houseStats ul {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.housePrice {
+    display: flex;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.houseAddress {
+    inline-size: 250px;
+    overflow-wrap: break-word;
+    margin-top: 5px;
+    color: #3b4144;
+}
+
+/** ################# **/
+/** GRID IMAGES **/
+/** ################# **/
+
+.houseImage {
+    background-size: cover;
+    background-position: center center;
+    width: auto;
+    height: 160px;
+    position: relative;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.houseImage-12 {
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2522641/house-1.jpg");
+}
+
+/** ################# **/
+/** GRID ICONS **/
+/** ################# **/
+
+.arrow-svg {
+    display: block;
+    height: 15px;
+    width: 15px;
+}
+
+.gridIcon {
+    width: 15px;
 }
 
 
@@ -197,6 +243,9 @@ html, body, footer, header {
 .truliaFooter {
   background: #474E52;
   padding: 20px 0px 20px 0px;
+  position:absolute;
+  bottom:0;
+  width:100%;
 }
 
 .truliaFooter ul,
