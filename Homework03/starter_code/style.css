@@ -48,29 +48,45 @@ html, body, footer, header {
   align-items: center;
 }
 
-.truliaHeader .mainNav {
+.truliaLogo {
+    min-width: 80px;
+}
+
+.mainNav {
     display: flex;
     justify-content: space-evenly;
     gap: 20px;
 }
 
-/** Right Nav **/
+/** Right Nav and account link**/
 
-.truliaHeader .accountNav {
+.accountNav {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
 }
 
-.truliaHeader .accountNav-1 {
+.accountNav-1 {
     display: flex;
     justify-content: space-evenly;
     gap: 20px;
 }
 
-.truliaHeader .accountNav-2 {
+.accountNav-2 {
     display: flex;
     justify-content: space-evenly;
     gap: 10px;
+    align-items: center;
+}
+
+.accountLogo {
+    display: inline-block;
+    border: 2px solid white;
+    border-radius: 22px;   
+    height: 19px;
+    padding-top: 3px;
+    text-align: center;
+    width: 22px;
 }
 
 /** ################# **/
