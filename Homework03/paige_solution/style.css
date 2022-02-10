@@ -1,0 +1,368 @@
+/** Colors **/
+/**
+Green: #20c063 / RGBA(32,192,99,1)
+Gray: #e8e9ea  / RGBA (232,233,234,1)
+Dark Text: #3b4144 / RGBA (59,65,68,1)
+Dark grey: #474E52
+**/
+
+/** ################# **/
+/** MAIN CSS **/
+/** ################# **/
+
+html, body, footer, header {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  margin:0;
+}
+
+/** ################# **/
+/** SITE HEADER **/
+/** ################# **/
+
+.truliaHeader {
+    background: #20c063;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 30px 0px 30px;
+    font-size: 14px;
+}
+
+.truliaHeader a,
+.truliaHeader a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+.truliaHeader ul,
+.truliaHeader ul a,
+.truliaHeader ul a:visited {
+  list-style: none;
+}
+
+/** Trulia Logo and Left Nav **/
+
+.logoAndMainNav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.truliaLogo {
+    min-width: 80px;
+}
+
+.mainNav {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+/** Right Nav and account link**/
+
+.accountNav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.accountNav-1 {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.accountNav-2 {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+    align-items: center;
+}
+
+.accountLogo {
+    display: inline-block;
+    border: 2px solid white;
+    border-radius: 22px;   
+    height: 19px;
+    padding-top: 3px;
+    text-align: center;
+    width: 22px;
+}
+
+/** ################# **/
+/** PAGE HEADER **/
+/** ################# **/
+
+.pageHeader {
+  background: white;
+  display: flex;
+  font-size: 14px;
+  gap: 10px;
+  padding: 20px 0px 0px 20px;
+}
+
+.pageHeader p.pageTitle {
+   font-weight: bold;
+}
+
+/** ################# **/
+/** MAIN GRID **/
+/** ################# **/
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:20px;
+    margin-bottom: 30px;
+    background-color: #e8e9ea;
+    padding: 30px 20px 30px 20px;
+}
+
+.grid ul {
+    list-style: none;
+    padding:0;
+}
+
+.gridItem {
+    min-width: 160px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.gridItem h1 {
+    font-size: 16px;
+    font-weight: bold;
+    margin:0;
+}
+
+.houseFacts {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.houseStats ul {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.housePrice {
+    display: flex;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.houseAddress {
+    color: #3b4144;
+}
+
+p.houseAddressLine1 {
+    margin: 5px 10px 0 0;
+}
+
+p.houseAddressLine2 {
+    margin: 0 10px 0 0;
+}
+
+/** ################# **/
+/** GRID IMAGES **/
+/** ################# **/
+
+.houseImage {
+    background-color: #e8e9ea;
+    background-size: cover;
+    background-position: center center;
+    width: auto;
+    height: 160px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    position: relative;
+}
+
+.houseImage-1 {
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2522641/house-1.jpg");
+}
+
+.houseImage-2 {
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2522641/house-2.jpg");
+}
+  
+.houseImage-3 {
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2522641/house-3.jpg");
+} 
+
+.houseImage-4 {
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2522641/house-4.jpg");
+} 
+
+.houseImage-5 {
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2522641/house-5.jpg");
+} 
+
+.houseImage-6 {
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2522641/house-6.jpg");
+}
+  
+.houseImage-7 {
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2522641/house-7.jpg");
+}   
+
+.houseImage-8 {
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2522641/house-8.jpg");
+} 
+
+.houseImage-9 {
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2522641/house-09.jpg");
+} 
+
+.houseImage-10 {
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2522641/house-10.jpg");
+} 
+
+.houseImage-11 {
+background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2522641/house-11.jpg");
+} 
+
+.houseImage-12 {
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2522641/house-12.jpg");
+} 
+
+/** ################# **/
+/** GRID ICONS **/
+/** ################# **/
+
+.arrow-svg {
+    display: block;
+    height: 15px;
+    width: 15px;
+}
+
+.gridIcon {
+    width: 15px;
+}
+
+.greenLabel {
+  text-transform: uppercase;
+  color: white;
+  background-color: RGBA(32,192,99,.75);
+  font-size: 12px;
+  width: 30px;
+  padding: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.greyLabel {
+    text-transform: uppercase;
+    color: white;
+    background-color: RGBA(59,65,68,.5);
+    font-size: 12px;
+    width: 70px;
+    padding: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+
+/** ################# **/
+/** PAGE NAV **/
+/** ################# **/
+
+
+.pageNavigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pageNavigation a,
+.pageNavigation a:visited,
+.pageNavigation p {
+    text-decoration: none;
+    font-size: 16px;
+    color: #3a8e52;
+}
+
+.pageNavigation ul {
+  list-style: none;
+  padding:0;
+}
+
+.pageNavigation .pageLinks ul {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin:0 0 20px 0;
+}
+
+.pageNavigation .pageBreadcrumbs ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin:0;
+}
+
+.pageNavigation .pageResults p {
+    color: #787d81;
+    margin:0 0 20px 0;
+}
+
+/** ################# **/
+/** INSIGHTS **/
+/** ################# **/
+
+.realEstateInsights {
+    background: white;
+    padding: 30px;
+}
+
+.realEstateInsights h1 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.realEstateInsights p {
+    font-size: 14px;
+    padding: 0px 15px 15px 0px;
+}
+
+.realEstateInsights p a,
+.realEstateInsights p a:visited {
+    color: #3a8e52;
+    text-decoration: none;
+}
+
+
+/** ################# **/
+/** SITE FOOTER **/
+/** ################# **/
+
+.truliaFooter {
+  background: #474E52;
+  padding: 20px 0px 20px 0px;
+  bottom:0;
+  width:100%;
+}
+
+.truliaFooter ul,
+.truliaFooter ul a,
+.truliaFooter ul a:visited {
+  color: white;
+  list-style: none;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.truliaFooter ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.truliaFooter .footerCopyright {
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 30px;
+}
