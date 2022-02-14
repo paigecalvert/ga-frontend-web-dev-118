@@ -14,3 +14,7 @@
 // function for stop light
     // turn all lights off
     //target the #stopLight id and change the class to redBulb
+
+// Listen for click on go
+// Listen for click on slow
+// Listen for click on stop
