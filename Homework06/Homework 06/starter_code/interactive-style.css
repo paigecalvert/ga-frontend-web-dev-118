@@ -2,6 +2,7 @@
 
 .trulia-grid-item {
     cursor:pointer;
+    transition: 0.15s ease-in-out;
 }
 
 .trulia-featured-grid-item {
