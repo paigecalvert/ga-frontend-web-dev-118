@@ -23,22 +23,19 @@
         
             <!--CTAs-->
             <section id="cta-select">
-                <h1>choose a category</h1>
                 <div class="dropdown">
-                    <a id="cta-dropdown" type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    category
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Fiction</a>
-                        <a class="dropdown-item" href="#">Non-fiction</a>
-                        <a class="dropdown-item" href="#">Mystery</a>
-                        <a class="dropdown-item" href="#">History</a>
-                        <a class="dropdown-item" href="#">Biography</a>
-                    </div>
+                    <select class="form-select btn btn-primary" aria-label="Default select example" id="cta-dropdown">
+                      <option selected value="cta-choose">Choose genre</option>
+                      <option value="0">Fiction</option>
+                      <option value="1">Non-fiction</option>
+                      <option value="2">Mystery</option>
+                      <option value="3">History</option>
+                      <option value="4">Biography</option>
+                    </select>
                 </div>
-                <a id="cta-return-result" type="button" class="btn btn-primary">gimme</a>
+                <!-- <a id="cta-return-result" type="button" class="btn btn-primary">gimme</a> -->
                 <h1>or</h1>
-                <a id="cta-surprise" type="button" class="btn btn-primary">surprise me</a>
+                <a id="cta-surprise" type="button" class="btn btn-primary">Surprise Me</a>
             </section>
         
         
@@ -46,16 +43,19 @@
             <section id="book-result">
                 <!--result-->
                 <div>
-                    <h1 id="book-title">The Goldfinch</h2>
+                    <h1 id="book-title"></h2>
                 </div>
                 <div>
-                    <h2 id="book-author">Donna Tartt</h3>
+                    <h2 id="book-author"></h3>
                 </div>
                 <div>
-                    <p id="book-desc">Food truck polaroid church-key twee taiyaki synth echo park kitsch yuccie single-origin coffee fixie schlitz disrupt. Squid unicorn iceland shoreditch truffaut air plant pitchfork photo booth activated charcoal. Kale chips heirloom yuccie vinyl cray adaptogen vaporware iPhone meditation. Hexagon church-key subway tile bushwick everyday carry wayfarers mumblecore tilde post-ironic farm-to-table. </p>
+                    <p id="book-desc"></p>
                 </div>
                 <div>
-                    <img id="book-image" src="goldfinch.jpeg" alt="book cover">
+                    <p id="book-rating"></p>
+                </div>
+                <div>
+                    <img id="book-image" src="" alt="book cover">
                 </div>
                 <a type="button" id="cta-buy" class="btn btn-primary" href="">Buy</a>
             </section>

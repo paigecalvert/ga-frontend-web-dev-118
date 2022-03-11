@@ -1,7 +1,7 @@
 
 
 
-// event listener to display a random title when the user clicks "gimme"
+// CHOOSE RANDOM
 document.addEventListener('DOMContentLoaded', function(event) {
 
     //return a random book genre when they click "surprise me"
@@ -57,19 +57,76 @@ document.addEventListener('DOMContentLoaded', function(event) {
             .catch(function(error){
             //catch errors
             console.log("oh no theres been an error", error)
-
-
-    })
+            })
         
     });
 
+    // CHOOSE A GENRE
+    document.querySelector("#cta-dropdown").addEventListener('change',function(){
+        let genre = this.value;
+        console.log(genre);
+        let APICall;
 
+        //change API call depending on the category they choose
+    
+        if (genre == 0){
+            //give fiction
+            APICall = "https://www.googleapis.com/books/v1/volumes?q=subject:fiction&langRestrict=en&printType=BOOKS&showPreorders=false&orderBy=newest&key=AIzaSyDRGSuwCh9r4TIcSNiviRJ-T4Fv3cUe47M";
+        }else if (genre == 1){
+            //give nonfiction
+            APICall = "https://www.googleapis.com/books/v1/volumes?q=subject:nonfiction&langRestrict=en&printType=BOOKS&showPreorders=false&key=AIzaSyDRGSuwCh9r4TIcSNiviRJ-T4Fv3cUe47M";
+        }else if (genre == 2){
+            //give mystery
+            APICall = "https://www.googleapis.com/books/v1/volumes?q=subject:mystery&langRestrict=en&printType=BOOKS&showPreorders=false&key=AIzaSyDRGSuwCh9r4TIcSNiviRJ-T4Fv3cUe47M";
+        }else if (genre == 3){
+            //give history
+            APICall = "https://www.googleapis.com/books/v1/volumes?q=subject:history&langRestrict=en&printType=BOOKS&showPreorders=false&key=AIzaSyDRGSuwCh9r4TIcSNiviRJ-T4Fv3cUe47M";
+        }else if (genre == 3) {
+            //give biography
+            APICall = "https://www.googleapis.com/books/v1/volumes?q=subject:biography&langRestrict=en&printType=BOOKS&showPreorders=false&key=AIzaSyDRGSuwCh9r4TIcSNiviRJ-T4Fv3cUe47M";
+        }
 
-// const requestURL = "https://www.googleapis.com/books/v1/volumes?q=subject:fiction&langRestrict=en&maxResults=10&printType=BOOKS&showPreorders=false&key=AIzaSyDRGSuwCh9r4TIcSNiviRJ-T4Fv3cUe47M"
+        //pass in the APICall and then edit the HTML based on the object
+        fetch(APICall)
+            .then(function(responseData){
+                console.log(responseData);
+                return responseData.json()
+            })
+            .then(function(jsonData){
+                let books = jsonData.items;
+                randomNum = Math.floor(Math.random() * books.length);
+                let newBookTitle = books[randomNum].volumeInfo.title;
+                let newBookAuthor = books[randomNum].volumeInfo.authors[0];
+                let newBookDescription;
+                if (books[randomNum].volumeInfo.description !==null){
+                    newBookDescription = books[randomNum].volumeInfo.description;
+                }else {
+                    newBookDescription = "";
+                }    
+                let newBookImage = books[randomNum].volumeInfo.imageLinks.large;
+                if (newBookImage == null){
+                    newBookImage = books[randomNum].volumeInfo.imageLinks.thumbnail;
+                }  
+                let newBookPurchaseLink = books[randomNum].volumeInfo.infoLink;
+                // console.log(jsonData)
+                document.querySelector('#book-title').innerText = newBookTitle;
+                document.querySelector('#book-author').innerText = newBookAuthor;
+                document.querySelector('#book-desc').innerText = newBookDescription;
+                document.querySelector('#book-image').setAttribute('src',newBookImage);
+                document.querySelector('#cta-buy').setAttribute('href',newBookPurchaseLink);
 
+            })
+            .catch(function(error){
+                //catch errors
+                console.log("oh no theres been an error", error)
+            })
+
+    });
 
 
 });
+
+
 /*
 
 *** API call to pick a book ***
