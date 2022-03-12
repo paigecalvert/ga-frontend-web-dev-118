@@ -4,7 +4,7 @@ body {
 }
 
 .btn {
-    width: 12rem;
+    min-width: 12rem;
 }
 
 /* Header */
@@ -24,26 +24,22 @@ header #site-title {
     margin-top: 2rem;
 }
 
-#cta-surprise, #cta-dropdown {
+#cta-dropdown, #cta-buy, #cta-surprise {
     background-color: #FF006E;
     border: transparent;
 }
 
-#cta-surprise:hover, #cta-dropdown:hover {
-    background-color: #eb0066;
-}
-
 /* Book result */
 
-#book-result {
+.book-result-off {
+    display: none;
+}
+
+.book-result-on {
     margin: 2rem 0rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.book-result-toggle {
-    display: none;
 }
 
 #book-result #book-title {
