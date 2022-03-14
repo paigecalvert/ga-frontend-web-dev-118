@@ -1,10 +1,44 @@
-
-
-
-// CHOOSE RANDOM
 document.addEventListener('DOMContentLoaded', function(event) {
 
-    //return a random book genre when they click "surprise me"
+// Function to return a book and display the results:
+function selectBook(jsonData){
+    
+    let books = jsonData.items;
+    
+    console.log(jsonData);
+    console.log(books);
+    console.log(books.length);
+
+    let randomNum = Math.floor(Math.random() * books.length);
+
+    let newBookTitle = books[randomNum].volumeInfo.title;
+    document.querySelector('#book-title').innerText = newBookTitle;
+
+    let newBookAuthor = books[randomNum].volumeInfo.authors[0];
+    document.querySelector('#book-author').innerText = newBookAuthor;
+
+    let newBookDescription;
+    if (books[randomNum].volumeInfo.description !==null){
+        newBookDescription = books[randomNum].volumeInfo.description;
+    }else {
+        newBookDescription = "";
+    }
+    document.querySelector('#book-desc').innerText = newBookDescription;
+    document.querySelector('#book-desc-mobile').innerText = newBookDescription;
+
+    let newBookImage = books[randomNum].volumeInfo.imageLinks.thumbnail;
+    document.querySelector('#book-image').setAttribute('src',newBookImage);
+
+    let newBookPurchaseLink = books[randomNum].volumeInfo.infoLink;
+    document.querySelector('#cta-buy').setAttribute('href',newBookPurchaseLink);
+
+    //show the results div
+    document.querySelector('#book-result').classList.replace('book-result-off','book-result-on');
+
+}
+
+// CHOOSE RANDOM
+
     document.querySelector("#cta-surprise").addEventListener('click',function(e){
         e.preventDefault;
 
@@ -28,49 +62,19 @@ document.addEventListener('DOMContentLoaded', function(event) {
             //give biography
             APICall = "https://www.googleapis.com/books/v1/volumes?q=subject:biography&langRestrict=en&key=AIzaSyDRGSuwCh9r4TIcSNiviRJ-T4Fv3cUe47M";
         }
-        fetch(APICall)
-            .then(function(responseData){
-            console.log(responseData);
-            return responseData.json()
-            })
-            .then(function(jsonData){
-                //now we have the data in json format!
-                //use it!
-                let books = jsonData.items;
-                randomNum = Math.floor(Math.random() * books.length);
-                let newBookTitle = books[randomNum].volumeInfo.title;
-                let newBookAuthor = books[randomNum].volumeInfo.authors[0];
-                let newBookDescription;
-                if (books[randomNum].volumeInfo.description !==null){
-                    newBookDescription = books[randomNum].volumeInfo.description;
-                }else {
-                    newBookDescription = "";
-                }
-                let newBookImage = books[randomNum].volumeInfo.imageLinks.large;
-                if (newBookImage == null){
-                    newBookImage = books[randomNum].volumeInfo.imageLinks.thumbnail;
-                }  
-                let newBookPurchaseLink = books[randomNum].volumeInfo.infoLink;
-                // console.log(jsonData)
-                document.querySelector('#book-title').innerText = newBookTitle;
-                document.querySelector('#book-author').innerText = newBookAuthor;
-                document.querySelector('#book-desc').innerText = newBookDescription;
-                document.querySelector('#book-image').setAttribute('src',newBookImage);
-                document.querySelector('#cta-buy').setAttribute('href',newBookPurchaseLink);
-                document.querySelector('#book-result').classList.replace('book-result-off','book-result-on');
 
-            })
+        fetch(APICall)
+            .then(responseData => responseData.json())
+            .then(jsonData => selectBook(jsonData))
             .catch(function(error){
-            //catch errors
-            console.log("oh no theres been an error", error)
-            })
-        
+                console.log("There is an error.", error);
+            }) 
     });
 
     // CHOOSE A GENRE
     document.querySelector("#cta-dropdown").addEventListener('change',function(){
         let genre = this.value;
-        console.log(genre);
+        
         let APICall;
 
         //change API call depending on the category they choose
@@ -92,44 +96,11 @@ document.addEventListener('DOMContentLoaded', function(event) {
             APICall = "https://www.googleapis.com/books/v1/volumes?q=subject:biography&langRestrict=en&key=AIzaSyDRGSuwCh9r4TIcSNiviRJ-T4Fv3cUe47M";
         }
 
-        //pass in the APICall and then edit the HTML based on the object
         fetch(APICall)
-            .then(function(responseData){
-                console.log(responseData);
-                return responseData.json()
-            })
-            .then(function(jsonData){
-                let books = jsonData.items;
-                randomNum = Math.floor(Math.random() * books.length);
-                let newBookTitle = books[randomNum].volumeInfo.title;
-                let newBookAuthor = books[randomNum].volumeInfo.authors[0];
-                let newBookDescription;
-                if (books[randomNum].volumeInfo.description !==null){
-                    newBookDescription = books[randomNum].volumeInfo.description;
-                }else {
-                    newBookDescription = "";
-                }    
-                let newBookImage = books[randomNum].volumeInfo.imageLinks.large;
-                if (newBookImage == null){
-                    newBookImage = books[randomNum].volumeInfo.imageLinks.thumbnail;
-                }  
-                let newBookPurchaseLink = books[randomNum].volumeInfo.infoLink;
-                // console.log(jsonData)
-                document.querySelector('#book-title').innerText = newBookTitle;
-                document.querySelector('#book-author').innerText = newBookAuthor;
-                document.querySelector('#book-desc').innerText = newBookDescription;
-                document.querySelector('#book-image').setAttribute('src',newBookImage);
-                document.querySelector('#cta-buy').setAttribute('href',newBookPurchaseLink);
-                //show the results div
-                document.querySelector('#book-result').classList.replace('book-result-off','book-result-on');
-
-            })
+            .then(responseData => responseData.json())
+            .then(jsonData => selectBook(jsonData))
             .catch(function(error){
-                //catch errors
-                console.log("oh no theres been an error", error)
+                console.log("There is an error.", error);
             })
-
     });
-
-
 });

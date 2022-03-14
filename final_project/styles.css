@@ -3,18 +3,10 @@ body {
     padding: 0;
 }
 
-.btn {
-    min-width: 12rem;
-}
-
-/* Header */
-
 header #site-title {
     text-align: center;
     font-size: 3rem;
 }
-
-/* Select options */
 
 #cta-select {
     display: flex;
@@ -27,9 +19,11 @@ header #site-title {
 #cta-dropdown, #cta-buy, #cta-surprise {
     background-color: #FF006E;
     border: transparent;
-}
+} 
 
-/* Book result */
+/** Book result **/
+
+/** show and hide book result **/
 
 .book-result-off {
     display: none;
@@ -51,6 +45,12 @@ header #site-title {
     font-size: 1.5rem;
 }
 
+#book-result img {
+    max-width: 20rem;
+    display: block;
+    margin-bottom:2rem;
+}
+
 #book-result #book-desc {
     text-align: justify;
     margin: 2rem;
@@ -61,12 +61,60 @@ header #site-title {
     -webkit-box-orient: vertical;
 }
 
-#book-result img {
-    max-width: 20rem;
-    display: block;
-    margin-bottom:2rem;
+#book-result #cta-buy {
+    margin: 2rem 0;
 }
 
-#book-result #cta-buy {
-    margin-bottom: 2rem;
+
+
+
+/**************************************/
+/** Xsmall screens; width 0px to 575px) **/
+
+@media (max-width:575px) {
+
+    #cta-dropdown, #cta-buy, #cta-surprise { 
+        width: 100%;
+        padding: 1rem 0rem;
+        font-size: 1.5rem;
+        border-radius: 0;
+    }
+
+    .dropdown {
+        width: 100%;
+        padding: 1rem 0rem;
+    }
+
+    .collapsible {
+        background-color: #eee;
+        color: #444;
+        padding: 1rem;
+        width: 100%;
+        border: none;
+        text-align: left;
+        font-size: 1.5rem;
+    }
+    
+    .collapsible:hover {
+        background-color: #ccc;
+    }
+
+    #book-desc-mobile {
+        width: 100%;
+    }
 }
+
+/**************************************/
+/**************************************/
+
+/**************************************/
+/** Styles for small screens and larger **/
+
+@media (min-width: 576px) {
+
+    .btn {
+        width: 14rem;
+    }  
+}
+/**************************************/
+/**************************************/
