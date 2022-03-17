@@ -1,34 +1,48 @@
 document.addEventListener('DOMContentLoaded', function(event) {
 
-// Function to return a book and display the results:
+// Return a book from the API and display the results
 function selectBook(jsonData){
     
     let books = jsonData.items;
     
-    console.log(jsonData);
-    console.log(books);
-    console.log(books.length);
+    // console.log(jsonData);
+    // console.log(books);
 
     let randomNum = Math.floor(Math.random() * books.length);
+    console.log(randomNum);
 
+    //assign the title
     let newBookTitle = books[randomNum].volumeInfo.title;
     document.querySelector('#book-title').innerText = newBookTitle;
+    console.log(newBookTitle);
 
-    let newBookAuthor = books[randomNum].volumeInfo.authors[0];
+    //assign the author
+    let newBookAuthor;
+    if (books[randomNum].volumeInfo.authors == null){
+        newBookAuthor = books[randomNum].volumeInfo.authors[0];
+        console.log(newBookAuthor);
+    }else {
+        newBookAuthor = "";
+    }
     document.querySelector('#book-author').innerText = newBookAuthor;
 
+    //assign the description
     let newBookDescription;
-    if (books[randomNum].volumeInfo.description !==null){
+    // if there is no description, prevent it from saying "undefined" on the screen
+    if (books[randomNum].volumeInfo.description !==null && books[randomNum].volumeInfo.description !==undefined){
         newBookDescription = books[randomNum].volumeInfo.description;
     }else {
-        newBookDescription = "";
+        newBookDescription = books[randomNum].volumeInfo.subtitle;
     }
     document.querySelector('#book-desc').innerText = newBookDescription;
     document.querySelector('#book-desc-mobile').innerText = newBookDescription;
 
+    // assign the image and alt text
     let newBookImage = books[randomNum].volumeInfo.imageLinks.thumbnail;
     document.querySelector('#book-image').setAttribute('src',newBookImage);
+    document.querySelector('#book-image').setAttribute('alt',newBookTitle+" cover");
 
+    //assign the link to buy the book
     let newBookPurchaseLink = books[randomNum].volumeInfo.infoLink;
     document.querySelector('#cta-buy').setAttribute('href',newBookPurchaseLink);
 
@@ -37,7 +51,7 @@ function selectBook(jsonData){
 
 }
 
-// CHOOSE RANDOM
+// Call the google books API and get a random result when they click Surprise Me
 
     document.querySelector("#cta-surprise").addEventListener('click',function(e){
         e.preventDefault;
@@ -73,26 +87,40 @@ function selectBook(jsonData){
 
     // CHOOSE A GENRE
     document.querySelector("#cta-dropdown").addEventListener('change',function(){
+        //create variable for the selected genre
         let genre = this.value;
-        
+
         let APICall;
+    
+        // let APICall = "https://www.googleapis.com/books/v1/volumes?q=";
+        // const APIKey = "AIzaSyDRGSuwCh9r4TIcSNiviRJ-T4Fv3cUe47M"
+        // let langRestrict = "langRestrict=en";
+        // let subject;
 
         //change API call depending on the category they choose
     
         if (genre == 0){
             //give fiction
             APICall = "https://www.googleapis.com/books/v1/volumes?q=subject:fiction&langRestrict=en&key=AIzaSyDRGSuwCh9r4TIcSNiviRJ-T4Fv3cUe47M";
+            // subject = 'subject:fiction';
+            // APICall = APICall + subject + "&key=" + APIKey;
+            // console.log(APICall);
+            
         }else if (genre == 1){
             //give nonfiction
+            //let subject = "nonfiction";
             APICall = "https://www.googleapis.com/books/v1/volumes?q=subject:nonfiction&langRestrict=en&key=AIzaSyDRGSuwCh9r4TIcSNiviRJ-T4Fv3cUe47M";
         }else if (genre == 2){
             //give mystery
+            //let subject = "mystery";
             APICall = "https://www.googleapis.com/books/v1/volumes?q=subject:mystery&langRestrict=en&key=AIzaSyDRGSuwCh9r4TIcSNiviRJ-T4Fv3cUe47M";
         }else if (genre == 3){
             //give history
+            //let subject = "history";
             APICall = "https://www.googleapis.com/books/v1/volumes?q=subject:history&langRestrict=en&key=AIzaSyDRGSuwCh9r4TIcSNiviRJ-T4Fv3cUe47M";
         }else if (genre == 4) {
             //give biography
+            //let subject = "biography";
             APICall = "https://www.googleapis.com/books/v1/volumes?q=subject:biography&langRestrict=en&key=AIzaSyDRGSuwCh9r4TIcSNiviRJ-T4Fv3cUe47M";
         }
 

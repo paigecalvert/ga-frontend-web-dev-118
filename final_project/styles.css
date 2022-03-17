@@ -36,22 +36,23 @@ header #site-title {
     align-items: center;
 }
 
-#book-result #book-title {
+#book-title {
     margin-top: 2rem;
     font-size: 2rem;
+    text-align: center;
 }
 
-#book-result #book-author {
+#book-author {
     font-size: 1.5rem;
 }
 
-#book-result img {
+img {
     max-width: 20rem;
     display: block;
     margin-bottom:2rem;
 }
 
-#book-result #book-desc {
+#book-desc {
     text-align: justify;
     margin: 2rem;
     max-width: 30rem;
@@ -61,15 +62,16 @@ header #site-title {
     -webkit-box-orient: vertical;
 }
 
-#book-result #cta-buy {
+#cta-buy {
     margin: 2rem 0;
 }
 
 
 
 
-/**************************************/
-/** Xsmall screens; width 0px to 575px) **/
+/****************************************/
+/** Xsmall screens; width 0px to 575px **/
+/****************************************/
 
 @media (max-width:575px) {
 
@@ -93,28 +95,37 @@ header #site-title {
         border: none;
         text-align: left;
         font-size: 1.5rem;
+        border-radius: 0;
     }
     
     .collapsible:hover {
         background-color: #ccc;
     }
 
-    #book-desc-mobile {
+    .mobile-show {
         width: 100%;
+    }
+
+    #book-desc {
+        display: none;
     }
 }
 
 /**************************************/
 /**************************************/
 
-/**************************************/
+/****************************************/
 /** Styles for small screens and larger **/
+/****************************************/
 
 @media (min-width: 576px) {
 
     .btn {
         width: 14rem;
     }  
+    .mobile-show{
+        display: none;
+    }
 }
 /**************************************/
 /**************************************/

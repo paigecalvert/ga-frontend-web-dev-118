@@ -1,0 +1,27 @@
+.accordion {
+    width: 100%;
+}
+.accordion-item {
+    width: 100%;
+}
+
+.accordion-header {
+    color: green;
+}
+
+.accordion-button {
+    color: tomato;
+}
+
+.accordion-collapse {
+    color: tomato;
+}
+
+.accordion-body {
+    color: green;
+}
+
+/* 
+collapse
+
+show */
