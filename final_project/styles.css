@@ -22,6 +22,7 @@ header {
 #site-title {
     font-size: 3rem;
     padding-top: 2rem;
+    font-family: 'Schoolbell', cursive;
 }
 
 
@@ -69,6 +70,7 @@ header {
     font-size: 2rem;
     text-align: center;
 }
+
 .bookTitleContainer{
     max-width: 30rem;
     overflow-wrap: break-word;
@@ -144,15 +146,6 @@ header {
         width: 100%;
         padding: 1rem 0rem;
     }
-
-    /* .collapsible {
-        color:  #444;
-        padding: 1rem;
-        width: 100%;
-        text-align: left;
-        font-size: 1.5rem;
-        border-radius: 0;
-    } */
 
     #collapsibleButton {
         font-size: 1.5rem;
