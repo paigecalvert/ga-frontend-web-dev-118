@@ -1,38 +1,70 @@
 document.addEventListener('DOMContentLoaded', function(event) {
 
-// Return a book from the API and display the results
+//Given a genre, return an API call    
+function createApiCall(genre){
+        //create variables for the api call
+        let apiCall = "https://www.googleapis.com/books/v1/volumes?q=";
+        const apiKey = "AIzaSyDRGSuwCh9r4TIcSNiviRJ-T4Fv3cUe47M"
+        const langRestrict = "langRestrict=en";
+        const printType = "printType=books";
+        const orderBy = "orderBy=relevance"
+        let q;
+    
+        //change the api call depending on genre
+    
+        if (genre == 0){
+            //show graphic novels
+            q = "graphic novel";
+        }else if (genre == 1){
+            //show biography
+            q = "biography";
+        }else if (genre == 2){
+            //show mystery
+            q = "mystery";
+        }else if (genre == 3){
+            //show history
+            q = "history";
+        }else if (genre == 4) {
+            //show sci-fi
+            q = "science fiction";
+        }else if (genre == 5) {
+            //show fantasy
+            q = "fantasy"
+        } 
+    
+        apiCall = apiCall + q + "&" + langRestrict + "&" + printType + "&" + orderBy + "&key=" + apiKey;
+
+        return apiCall;
+}
+
+// Given JSON response data, select a book and display it
 function selectBook(jsonData){
     
     let books = jsonData.items;
-    
-    // console.log(jsonData);
-    // console.log(books);
 
     let randomNum = Math.floor(Math.random() * books.length);
-    console.log(randomNum);
 
     //assign the title
     let newBookTitle = books[randomNum].volumeInfo.title;
     document.querySelector('#book-title').innerText = newBookTitle;
-    console.log(newBookTitle);
 
     //assign the author
     let newBookAuthor;
-    if (books[randomNum].volumeInfo.authors == null){
+    if (books[randomNum].volumeInfo.authors !== null){
         newBookAuthor = books[randomNum].volumeInfo.authors[0];
-        console.log(newBookAuthor);
     }else {
-        newBookAuthor = "";
+        newBookAuthor = "No author provided.";
     }
     document.querySelector('#book-author').innerText = newBookAuthor;
 
     //assign the description
     let newBookDescription;
-    // if there is no description, prevent it from saying "undefined" on the screen
     if (books[randomNum].volumeInfo.description !==null && books[randomNum].volumeInfo.description !==undefined){
         newBookDescription = books[randomNum].volumeInfo.description;
-    }else {
+    }else if (books[randomNum].volumeInfo.subtitle !==null && books[randomNum].volumeInfo.subtitle !==undefined) {
         newBookDescription = books[randomNum].volumeInfo.subtitle;
+    }else {
+        newBookDescription = "No description provided."
     }
     document.querySelector('#book-desc').innerText = newBookDescription;
     document.querySelector('#book-desc-mobile').innerText = newBookDescription;
@@ -51,84 +83,37 @@ function selectBook(jsonData){
 
 }
 
-// Call the google books API and get a random result when they click Surprise Me
+// When the user click Surprise Me, pass a random genre to the createApiCall function
+document.querySelector("#cta-surprise").addEventListener('click',function(e){
+    e.preventDefault;
 
-    document.querySelector("#cta-surprise").addEventListener('click',function(e){
-        e.preventDefault;
+    // choose a random genre
+    let g = Math.floor(Math.random() * 6);
 
-        let randomNum = Math.floor(Math.random() * 5);
-
-        let APICall;
-
-        if (randomNum == 0){
-            //give fiction
-            APICall = "https://www.googleapis.com/books/v1/volumes?q=subject:fiction&langRestrict=en&key=AIzaSyDRGSuwCh9r4TIcSNiviRJ-T4Fv3cUe47M";
-        }else if (randomNum == 1){
-            //give nonfiction
-            APICall = "https://www.googleapis.com/books/v1/volumes?q=subject:nonfiction&langRestrict=en&key=AIzaSyDRGSuwCh9r4TIcSNiviRJ-T4Fv3cUe47M";
-        }else if (randomNum == 2){
-            //give mystery
-            APICall = "https://www.googleapis.com/books/v1/volumes?q=subject:mystery&langRestrict=en&key=AIzaSyDRGSuwCh9r4TIcSNiviRJ-T4Fv3cUe47M";
-        }else if (randomNum == 3){
-            //give history
-            APICall = "https://www.googleapis.com/books/v1/volumes?q=subject:history&langRestrict=en&key=AIzaSyDRGSuwCh9r4TIcSNiviRJ-T4Fv3cUe47M";
-        }else {
-            //give biography
-            APICall = "https://www.googleapis.com/books/v1/volumes?q=subject:biography&langRestrict=en&key=AIzaSyDRGSuwCh9r4TIcSNiviRJ-T4Fv3cUe47M";
-        }
-
-        fetch(APICall)
-            .then(responseData => responseData.json())
-            .then(jsonData => selectBook(jsonData))
-            .catch(function(error){
-                console.log("There is an error.", error);
-            }) 
-    });
-
-    // CHOOSE A GENRE
-    document.querySelector("#cta-dropdown").addEventListener('change',function(){
-        //create variable for the selected genre
-        let genre = this.value;
-
-        let APICall;
-    
-        // let APICall = "https://www.googleapis.com/books/v1/volumes?q=";
-        // const APIKey = "AIzaSyDRGSuwCh9r4TIcSNiviRJ-T4Fv3cUe47M"
-        // let langRestrict = "langRestrict=en";
-        // let subject;
-
-        //change API call depending on the category they choose
-    
-        if (genre == 0){
-            //give fiction
-            APICall = "https://www.googleapis.com/books/v1/volumes?q=subject:fiction&langRestrict=en&key=AIzaSyDRGSuwCh9r4TIcSNiviRJ-T4Fv3cUe47M";
-            // subject = 'subject:fiction';
-            // APICall = APICall + subject + "&key=" + APIKey;
-            // console.log(APICall);
-            
-        }else if (genre == 1){
-            //give nonfiction
-            //let subject = "nonfiction";
-            APICall = "https://www.googleapis.com/books/v1/volumes?q=subject:nonfiction&langRestrict=en&key=AIzaSyDRGSuwCh9r4TIcSNiviRJ-T4Fv3cUe47M";
-        }else if (genre == 2){
-            //give mystery
-            //let subject = "mystery";
-            APICall = "https://www.googleapis.com/books/v1/volumes?q=subject:mystery&langRestrict=en&key=AIzaSyDRGSuwCh9r4TIcSNiviRJ-T4Fv3cUe47M";
-        }else if (genre == 3){
-            //give history
-            //let subject = "history";
-            APICall = "https://www.googleapis.com/books/v1/volumes?q=subject:history&langRestrict=en&key=AIzaSyDRGSuwCh9r4TIcSNiviRJ-T4Fv3cUe47M";
-        }else if (genre == 4) {
-            //give biography
-            //let subject = "biography";
-            APICall = "https://www.googleapis.com/books/v1/volumes?q=subject:biography&langRestrict=en&key=AIzaSyDRGSuwCh9r4TIcSNiviRJ-T4Fv3cUe47M";
-        }
-
-        fetch(APICall)
-            .then(responseData => responseData.json())
-            .then(jsonData => selectBook(jsonData))
-            .catch(function(error){
-                console.log("There is an error.", error);
-            })
-    });
+    //create api call based on genre
+    fetch(createApiCall(g))
+        .then(responseData => responseData.json())
+        // select and display the result
+        .then(jsonData => selectBook(jsonData))
+        .catch(function(error){
+            console.log("There is an error.", error);
+        }) 
 });
+
+// When the user chooses a genre, read the selected genre and pass it to the createApiCall function
+document.querySelector("#cta-dropdown").addEventListener('change',function(){
+    //set a variable equal to whichever option they click on
+    let g = this.value;
+
+    //create api call based on genre
+    fetch(createApiCall(g))
+        .then(responseData => responseData.json())
+        // select and display the result
+        .then(jsonData => selectBook(jsonData))
+        .catch(function(error){
+        console.log("There is an error.", error);
+        })
+        
+});
+
+})
