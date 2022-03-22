@@ -80,6 +80,7 @@ function selectBook(jsonData){
 
     }else {
         let newBookDescription = "No description provided."
+        
         document.querySelector('#book-desc').innerText = newBookDescription;
         document.querySelector('#book-desc-mobile').innerText = newBookDescription;
         document.querySelector('#book-desc-read-more').setAttribute('href',newBookPurchaseLink);
