@@ -1,3 +1,11 @@
+/* site colors:
+- dark grey: #414141
+- light grey: #eee
+- light grey:hover : #ccc
+- red: #F34133
+- red:hover : #C92A2A */
+
+
 body,html,header,footer {
     margin: 0;
     padding: 0;
@@ -90,12 +98,22 @@ header {
 
 #book-desc {
     text-align: justify;
-    margin: 2rem;
+    margin:0;
     max-width: 30rem;
     display: -webkit-box;
     overflow: hidden;
     -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
+}
+
+#book-desc-read-more {
+    text-align: left;
+}
+
+.bookDescContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
 }
 
 #cta-buy {
@@ -113,7 +131,6 @@ header {
 
 .site-footer p {
     margin: 0;
-    /* color: #444; */
     font-size: 1rem;
     text-align: center;
     text-align: right;
@@ -151,19 +168,32 @@ header {
         font-size: 1.5rem;
     }
 
+    .accordian-button {
+        color:#414141;
+    }
+
     #bookDescriptionCollapsibleItem{
         border-right:none;
         border-left:none;
         border-radius: 0;
     }
 
-    .mobile-show {
-        width: 100%;
+    .bookDescContainer {
+        display: none;
+    }
+    
+    #book-desc-read-more {
+        display: none;
     }
 
     #book-desc {
         display: none;
     }
+
+    .mobile-show {
+        width: 100%;
+    }
+   
 }
 
 /**************************************/
