@@ -49,48 +49,45 @@ function selectBook(jsonData){
     document.querySelector('#book-title').innerText = newBookTitle;
 
     //assign the author
-    if (books[randomNum].volumeInfo.authors !== null){
-        let newBookAuthor = books[randomNum].volumeInfo.authors[0];
-        document.querySelector('#book-author').innerText = newBookAuthor;
+    let newBookAuthor = books[randomNum].volumeInfo.authors[0];
+
+    if (newBookAuthor !== null && newBookAuthor !== undefined){
+        newBookAuthor = books[randomNum].volumeInfo.authors[0];
+        
     }else {
-        let newBookAuthor = "No author provided.";
-        document.querySelector('#book-author').innerText = newBookAuthor;
+        newBookAuthor = "No author provided.";
     }
+    //add the author to the html
+    document.querySelector('#book-author').innerText = newBookAuthor;
     
 
     //assign the link to buy the book, and to read more in the description
     let newBookPurchaseLink = books[randomNum].volumeInfo.infoLink;
     document.querySelector('#cta-buy').setAttribute('href',newBookPurchaseLink);
 
-    //assign the description
-    
-    if (books[randomNum].volumeInfo.description !==null && books[randomNum].volumeInfo.description !==undefined){
-        let newBookDescription = books[randomNum].volumeInfo.description;
+    //assign the description and related Read more link
 
-        document.querySelector('#book-desc').innerText = newBookDescription;
-        document.querySelector('#book-desc-mobile').innerText = newBookDescription;
-        document.querySelector('#book-desc-read-more').setAttribute('href',newBookPurchaseLink);
+    let newBookDescription = books[randomNum].volumeInfo.description;
+    
+    if (newBookDescription !==null && newBookDescription !==undefined){
+        newBookDescription = books[randomNum].volumeInfo.description;
 
     }else if (books[randomNum].volumeInfo.subtitle !==null && books[randomNum].volumeInfo.subtitle !==undefined) {
-        let newBookDescription = books[randomNum].volumeInfo.subtitle;
-
-        document.querySelector('#book-desc').innerText = newBookDescription;
-        document.querySelector('#book-desc-mobile').innerText = newBookDescription;
-        document.querySelector('#book-desc-read-more').setAttribute('href',newBookPurchaseLink);
+        newBookDescription = books[randomNum].volumeInfo.subtitle;
 
     }else {
-        let newBookDescription = "No description provided."
-        
-        document.querySelector('#book-desc').innerText = newBookDescription;
-        document.querySelector('#book-desc-mobile').innerText = newBookDescription;
-        document.querySelector('#book-desc-read-more').setAttribute('href',newBookPurchaseLink);
+        newBookDescription = "No description provided."   
     }
+    //add description to the html
+    document.querySelector('#book-desc').innerText = newBookDescription;
+    document.querySelector('#book-desc-mobile').innerText = newBookDescription;
+    document.querySelector('#book-desc-read-more').setAttribute('href',newBookPurchaseLink);
     
 
     // assign the image and alt text
     let newBookImage = books[randomNum].volumeInfo.imageLinks.thumbnail;
     document.querySelector('#book-image').setAttribute('src',newBookImage);
-    document.querySelector('#book-image').setAttribute('alt',newBookTitle+" cover");
+    document.querySelector('#book-image').setAttribute('alt',newBookTitle+" book cover");
 
     //show the results div
     document.querySelector('#book-result').classList.replace('book-result-off','book-result-on');
@@ -127,7 +124,6 @@ document.querySelector("#cta-dropdown").addEventListener('change',function(){
         .catch(function(error){
         console.log("There is an error.", error);
         })
-        
 });
 
 })
