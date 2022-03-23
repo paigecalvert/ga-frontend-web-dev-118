@@ -49,9 +49,10 @@ function selectBook(jsonData){
     document.querySelector('#book-title').innerText = newBookTitle;
 
     //assign the author
-    let newBookAuthor = books[randomNum].volumeInfo.authors[0];
+    let newBookAuthor = books[randomNum].volumeInfo.authors;
+    console.log(Array.isArray(newBookAuthor));
 
-    if (newBookAuthor !== null && newBookAuthor !== undefined){
+    if (newBookAuthor !== null && newBookAuthor !== undefined && Array.isArray(newBookAuthor) == true){
         newBookAuthor = books[randomNum].volumeInfo.authors[0];
         
     }else {
