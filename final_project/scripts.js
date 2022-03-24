@@ -45,52 +45,73 @@ function selectBook(jsonData){
     let randomNum = Math.floor(Math.random() * books.length);
 
     //assign the title
-    let newBookTitle = books[randomNum].volumeInfo.title;
+    let newBookTitle;
+    
+    if (books[randomNum].volumeInfo.hasOwnProperty('title')==true){
+        newBookTitle = books[randomNum].volumeInfo.title;
+    }
+    else {
+        newBookTitle = "No title provided. Try again."
+    }    
     document.querySelector('#book-title').innerText = newBookTitle;
 
     //assign the author
     let newBookAuthor = books[randomNum].volumeInfo.authors;
-    console.log(Array.isArray(newBookAuthor));
 
-    if (newBookAuthor !== null && newBookAuthor !== undefined && Array.isArray(newBookAuthor) == true){
+    if (Array.isArray(newBookAuthor) == true){
         newBookAuthor = books[randomNum].volumeInfo.authors[0];
         
     }else {
         newBookAuthor = "No author provided.";
     }
-    //add the author to the html
     document.querySelector('#book-author').innerText = newBookAuthor;
     
 
     //assign the link to buy the book, and to read more in the description
-    let newBookPurchaseLink = books[randomNum].volumeInfo.infoLink;
+    let newBookPurchaseLink;
+
+    if (books[randomNum].volumeInfo.hasOwnProperty('infoLink')==true){
+        newBookPurchaseLink = books[randomNum].volumeInfo.infoLink;
+    }else {
+        newBookPurchaseLink = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+    } 
     document.querySelector('#cta-buy').setAttribute('href',newBookPurchaseLink);
 
-    //assign the description and related Read more link
 
-    let newBookDescription = books[randomNum].volumeInfo.description;
+    //assign the description and related Read more link
+    let newBookDescription;
     
-    if (newBookDescription !==null && newBookDescription !==undefined){
+    if (books[randomNum].volumeInfo.hasOwnProperty('description')==true){
         newBookDescription = books[randomNum].volumeInfo.description;
 
-    }else if (books[randomNum].volumeInfo.subtitle !==null && books[randomNum].volumeInfo.subtitle !==undefined) {
+    }else if (books[randomNum].volumeInfo.hasOwnProperty('subtitle')==true) {
         newBookDescription = books[randomNum].volumeInfo.subtitle;
 
     }else {
         newBookDescription = "No description provided."   
     }
-    //add description to the html
     document.querySelector('#book-desc').innerText = newBookDescription;
     document.querySelector('#book-desc-mobile').innerText = newBookDescription;
     document.querySelector('#book-desc-read-more').setAttribute('href',newBookPurchaseLink);
     
 
     // assign the image and alt text
-    let newBookImage = books[randomNum].volumeInfo.imageLinks.thumbnail;
-    document.querySelector('#book-image').setAttribute('src',newBookImage);
-    document.querySelector('#book-image').setAttribute('alt',newBookTitle+" book cover");
+    let newBookImage;
+    let altText;
 
-    //show the results div
+    if (books[randomNum].volumeInfo.hasOwnProperty('imageLinks')  == true){
+        newBookImage = books[randomNum].volumeInfo.imageLinks.thumbnail;
+        altText = newBookTitle+" book cover";
+    }
+    else {
+        newBookImage = "open-book.png";
+        altText = "Google open book emoji"
+    }
+    document.querySelector('#book-image').setAttribute('src',newBookImage);
+    document.querySelector('#book-image').setAttribute('alt',altText);
+
+
+    //show the results
     document.querySelector('#book-result').classList.replace('book-result-off','book-result-on');
 
 }
