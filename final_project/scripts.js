@@ -44,7 +44,7 @@ function selectBook(jsonData){
 
     let randomNum = Math.floor(Math.random() * books.length);
 
-
+    //assign properties; use .hasOwnProperty() to make sure each property exists in the JSON response
 
     //assign the title
     let newBookTitle;
