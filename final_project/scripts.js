@@ -27,10 +27,10 @@ function createApiCall(genre){
         }else if (genre == 4) {
             //show sci-fi
             q = "science fiction";
-        }else if (genre == 5) {
-            //show fantasy
-            q = "fantasy"
-        } 
+        }else {
+            //otherwise, search for my favorite book
+            q="Devil in the white city";
+        }
     
         apiCall = apiCall + q + "&" + langRestrict + "&" + printType + "&" + orderBy + "&key=" + apiKey;
 
@@ -44,6 +44,8 @@ function selectBook(jsonData){
 
     let randomNum = Math.floor(Math.random() * books.length);
 
+
+
     //assign the title
     let newBookTitle;
     
@@ -55,10 +57,12 @@ function selectBook(jsonData){
     }    
     document.querySelector('#book-title').innerText = newBookTitle;
 
-    //assign the author
-    let newBookAuthor = books[randomNum].volumeInfo.authors;
 
-    if (Array.isArray(newBookAuthor) == true){
+
+    //assign the author
+    let newBookAuthor;
+
+    if (books[randomNum].volumeInfo.hasOwnProperty('authors')==true && Array.isArray(books[randomNum].volumeInfo.authors) == true){
         newBookAuthor = books[randomNum].volumeInfo.authors[0];
         
     }else {
@@ -66,6 +70,7 @@ function selectBook(jsonData){
     }
     document.querySelector('#book-author').innerText = newBookAuthor;
     
+
 
     //assign the link to buy the book, and to read more in the description
     let newBookPurchaseLink;
@@ -76,6 +81,8 @@ function selectBook(jsonData){
         newBookPurchaseLink = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
     } 
     document.querySelector('#cta-buy').setAttribute('href',newBookPurchaseLink);
+    document.querySelector('#book-desc-read-more').setAttribute('href',newBookPurchaseLink);
+
 
 
     //assign the description and related Read more link
@@ -92,7 +99,7 @@ function selectBook(jsonData){
     }
     document.querySelector('#book-desc').innerText = newBookDescription;
     document.querySelector('#book-desc-mobile').innerText = newBookDescription;
-    document.querySelector('#book-desc-read-more').setAttribute('href',newBookPurchaseLink);
+    
     
 
     // assign the image and alt text
@@ -111,17 +118,22 @@ function selectBook(jsonData){
     document.querySelector('#book-image').setAttribute('alt',altText);
 
 
+
     //show the results
     document.querySelector('#book-result').classList.replace('book-result-off','book-result-on');
-
 }
 
 // When the user click Surprise Me, pass a random genre to the createApiCall function
 document.querySelector("#cta-surprise").addEventListener('click',function(e){
     e.preventDefault;
 
-    // choose a random genre
-    let g = Math.floor(Math.random() * 6);
+    //determine how many options there are in the genre dropdown
+    let numberOfDropdownOptions = document.querySelectorAll('#cta-dropdown > option').length;
+
+    //subtract 1 from the total number of options in the dropdown to account
+    //for the extra "Choose a genre" option.
+    // Let g = the value of a random option from the list
+    let g = Math.floor(Math.random() * (numberOfDropdownOptions - 1));
 
     //create api call based on genre
     fetch(createApiCall(g))
